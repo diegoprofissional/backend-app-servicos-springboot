@@ -90,7 +90,7 @@ public class PrestadorServicoService {
         var classificacoes = this.prestadorServicoRepository.findByServicoNome(servicoProcurado);
 
 
-        System.out.println("http");
+        System.out.println("htddtp");
         System.out.println(classificacoes);
         return   ResponseEntity.ok(classificacoes);
     }
