@@ -12,12 +12,12 @@ import java.util.UUID;
 public class ServicoS3 {
 
     public static String enviarArquivoS3(String arquivo) {
-        String adccessKey = "";
-        String secrdetKey = "";
+        String accessKey = "";
+        String secretKey = "";
 
         AmazonS3 s3Client = new AmazonS3Client(new BasicAWSCredentials(accessKey, secretKey));
 
-        String bucketName = "";
+        String bucketName = "velho-bucket";
         String fileName = "proservicos" + UUID.randomUUID().toString()  + ".jpg";
 
         File fileToUpload = new File(arquivo);
