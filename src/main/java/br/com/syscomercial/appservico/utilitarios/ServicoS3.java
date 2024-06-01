@@ -12,8 +12,8 @@ import java.util.UUID;
 public class ServicoS3 {
 
     public static String enviarArquivoS3(String arquivo) {
-        String accessKey = "secret";
-        String secretKey = "secret";
+        String accessKey = "";
+        String secretKey = "";
 
         AmazonS3 s3Client = new AmazonS3Client(new BasicAWSCredentials(accessKey, secretKey));
 
