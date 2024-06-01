@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: appservico
+    main:
+      allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/appservicos
+    username: postgres
+    password: 23@!shhFTP
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        debug: true,
+        jdbc.lob.non_contextual_creation: true
+
