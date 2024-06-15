@@ -17,4 +17,7 @@ spring:
         format_sql: true
         debug: true,
         jdbc.lob.non_contextual_creation: true
+server:
+    port: 8081
+keySetURI: http://localhost:8080/oauth2/jwks
 

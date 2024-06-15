@@ -8,14 +8,19 @@ import br.com.syscomercial.appservico.services.ServicoPrestadoService;
 import br.com.syscomercial.appservico.utilitarios.TratadorImagem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.encrypt.BytesEncryptor;
+import org.springframework.security.crypto.encrypt.Encryptors;
+import org.springframework.security.crypto.keygen.KeyGenerators;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/prestadores-servicos")
+@RequestMapping("api")
 public class PrestadorServicoController {
 
 
@@ -23,9 +28,7 @@ public class PrestadorServicoController {
     private final ServicoPrestadoService servicoPrestadoService;
 
 
-
-    @CrossOrigin(origins = "*")
-    @GetMapping()
+    @GetMapping("/prestadores-servicos")
     ResponseEntity getPrestadoresServico(@RequestParam( value = "servicoProcurado", required = false) Integer servicoProcurado){
 
         var prestadoresServicos = this.prestadorServicoService.search(servicoProcurado);
@@ -42,8 +45,7 @@ public class PrestadorServicoController {
       //  return  ResponseEntity.ok(prestadoresServicos.getBody());
     //}
 
-    @CrossOrigin(origins = "*")
-    @GetMapping("{id}")
+    @GetMapping("/prestadores-servicos/{id}")
     ResponseEntity getById(@PathVariable Long id){
 
         var prestadorServico = this.prestadorServicoService.getById(id);
@@ -53,7 +55,6 @@ public class PrestadorServicoController {
 
 
 
-    @CrossOrigin(origins = "*")
     @GetMapping("/fotos/{id}")
     ResponseEntity getFotoById(@PathVariable Long id){
 
@@ -62,7 +63,6 @@ public class PrestadorServicoController {
         return  ResponseEntity.ok(urlFotoAWSS3);
     }
 
-    @CrossOrigin(origins = "*")
     @DeleteMapping("{id}")
     ResponseEntity deleteById(@PathVariable Long id){
 
@@ -71,8 +71,7 @@ public class PrestadorServicoController {
         return  ResponseEntity.ok("");
     }
 
-    @CrossOrigin(origins = "*")
-    @PostMapping()
+    @PostMapping("/admin/prestadores-servicos")
     ResponseEntity post(@ModelAttribute DadosPrestadorServico prestadorServico,
                         @RequestParam("arquivoFoto") MultipartFile arquivoFoto){
 
@@ -156,7 +155,6 @@ public class PrestadorServicoController {
         return  ResponseEntity.created( URI.create("https://localhost:8080/prestador-servico/")).build();
     }
 
-    @CrossOrigin(origins = "*")
     @PutMapping("{id}")
     ResponseEntity put(@ModelAttribute DadosPrestadorServico dadosPrestadorServico){
 
@@ -165,7 +163,6 @@ public class PrestadorServicoController {
         return  ResponseEntity.created( URI.create("https://localhost:8080/prestador-servico/")).build();
     }
 
-    @CrossOrigin(origins = "*")
     @PutMapping("fotos/{id}")
     ResponseEntity putFoto(@PathVariable Long id,
                            @RequestParam("arquivoFoto") MultipartFile arquivoFoto){
@@ -175,13 +172,32 @@ public class PrestadorServicoController {
         return  ResponseEntity.created( URI.create("https://localhost:8080/prestador-servico/")).build();
     }
 
-    @CrossOrigin(origins = "*")
     @GetMapping("analitico/numero-cadastros")
     ResponseEntity getNumeroPrestadoresCadastrados(){
 
         Long numeroCadastros = this.prestadorServicoService.getNumeroPrestadoresCadastrados();
 
         return  ResponseEntity.ok(numeroCadastros);
+    }
+
+    @GetMapping("sscm")
+    ResponseEntity ssm(){
+
+        String salt = KeyGenerators.string().generateKey();
+        String password = "secret";
+        String valueToEncrypt = "Hello";
+
+        BytesEncryptor e = Encryptors.stronger(password, salt);
+        byte[] encrypted = e.encrypt(valueToEncrypt.getBytes());
+        byte[] decrypted = e.decrypt(encrypted);
+
+        List<String> l = new ArrayList<>();
+        l.add(decrypted.toString());
+        l.add(encrypted.toString());
+
+
+
+        return  ResponseEntity.ok(l);
     }
 
 }

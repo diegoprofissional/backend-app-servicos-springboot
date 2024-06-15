@@ -3,6 +3,8 @@ package br.com.syscomercial.appservico.services;
 import br.com.syscomercial.appservico.data.DadosPrestadorServico;
 import br.com.syscomercial.appservico.entities.PrestadorServico;
 import br.com.syscomercial.appservico.repositories.PrestadorServicoRep;
+import br.com.syscomercial.appservico.repositories.PrestadorServicoRep;
+import br.com.syscomercial.appservico.utilitarios.ServicoS3;
 import br.com.syscomercial.appservico.utilitarios.TratadorImagem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
