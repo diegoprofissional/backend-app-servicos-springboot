@@ -15,4 +15,6 @@ public class Administrador {
 
     private String senha;
 
+    private String autoridade;
+
 }

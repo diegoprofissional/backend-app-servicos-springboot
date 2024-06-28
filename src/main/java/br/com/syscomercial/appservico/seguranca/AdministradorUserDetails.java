@@ -46,7 +46,7 @@ public class AdministradorUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(() -> "reead");
+        return List.of(() -> "write");
     }
 
 }
