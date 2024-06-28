@@ -15,7 +15,7 @@
 	<name>appservico</name>
 	<description>App de Serviços</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<packaging>war</packaging> <!-- Change packaging to war -->
 	<dependencies>
