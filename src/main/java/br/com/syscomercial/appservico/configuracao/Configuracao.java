@@ -36,7 +36,7 @@ logger.info(keySetUri);
             CorsConfigurationSource source = request -> {
                 CorsConfiguration config = new CorsConfiguration();
                 config.setAllowedOrigins(
-                        List.of("http://192.168.0.87:3000", "http://localhost:3000", "http://www.servicospro.com:8080")
+                        List.of("http://192.168.0.87:3000", "http://localhost:3000", "http://www.servicospro.com:3001")
                 );
                 config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
 
