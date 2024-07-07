@@ -19,5 +19,5 @@ spring:
         jdbc.lob.non_contextual_creation: true
 server:
     port: 8080
-keySetURI: http://localhost:8080/oauth2/jwks
+keySetURI: http://www.servicospro.com:8080/servidorautorizacao-0.0.1-SNAPSHOT/oauth2/jwks
 
