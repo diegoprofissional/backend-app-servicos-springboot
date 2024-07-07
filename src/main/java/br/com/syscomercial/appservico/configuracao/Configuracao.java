@@ -38,7 +38,7 @@ logger.info(keySetUri);
                 config.setAllowedOrigins(
                         List.of("http://192.168.0.87:3000", "http://localhost:3000", "http://www.servicospro.com:3001")
                 );
-                config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE"));
+                config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
                 config.setAllowedHeaders(List.of("*"));
                 return config;
