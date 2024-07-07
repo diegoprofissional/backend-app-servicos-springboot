@@ -63,7 +63,7 @@ public class PrestadorServicoController {
         return  ResponseEntity.ok(urlFotoAWSS3);
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/admin/prestadores-servicos/{id}")
     ResponseEntity deleteById(@PathVariable Long id){
 
         var prestadorServico = this.prestadorServicoService.deleteById(id);
