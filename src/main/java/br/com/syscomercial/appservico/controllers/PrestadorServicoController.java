@@ -77,7 +77,7 @@ public class PrestadorServicoController {
                         @RequestParam("arquivoFoto") MultipartFile arquivoFoto){
 
 
-     /*   TratadorImagem tratadorImagem = new TratadorImagem();
+        TratadorImagem tratadorImagem = new TratadorImagem();
 
        String urlFotoAWSS3 = tratadorImagem.transformarArquivoFotoURL(arquivoFoto);
 
@@ -151,7 +151,7 @@ public class PrestadorServicoController {
             sp.setIdPrestadorServico(savedPs.getId());
             sp.setIdTipoServicoPrestado(12);
             this.servicoPrestadoService.save(sp);
-        }*/
+        }
 
         return  ResponseEntity.created( URI.create("https://localhost:8080/prestador-servico/")).build();
     }

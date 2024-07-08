@@ -25,7 +25,7 @@ public class TratadorImagem {
 
     private String  salvarImagemOriginalSistemaArquivo(MultipartFile arquivoFoto) {
 
-        File file = new File("/home/diego/Documentos/appservico/src/arquivosTemporarios", "arquivo.jpg");
+        File file = new File("/home/arquivosTemporarios", "arquivo.jpg");
         try{
             FileOutputStream outputStream = new FileOutputStream(file);
             outputStream.write(arquivoFoto.getBytes());
@@ -36,7 +36,7 @@ public class TratadorImagem {
 
         }
 
-        return "/home/diego/Documentos/appservico/src/arquivosTemporarios/arquivo.jpg";
+        return "/home/arquivosTemporarios/arquivo.jpg";
 
     }
 
@@ -47,14 +47,14 @@ public class TratadorImagem {
 
             Thumbnails.of(fotoOriginalSalva)
                     .size(200, 200) // Tamanho da miniatura
-                    .toFile(new File("/home/diego/Documentos/appservico/src/arquivosTemporarios/miniatura.jpg")); // Salva a miniatura em um arquivo
+                    .toFile(new File("/home/arquivosTemporarios/miniatura.jpg")); // Salva a miniatura em um arquivo
 
             // Após a criação da miniatura, você pode excluir o arquivo original se necessário
             fotoOriginalSalva.delete();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "/home/diego/Documentos/appservico/src/arquivosTemporarios/miniatura.jpg";
+        return "/home/arquivosTemporarios/miniatura.jpg";
 
     }
 
