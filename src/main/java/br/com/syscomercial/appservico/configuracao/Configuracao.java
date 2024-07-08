@@ -32,14 +32,13 @@ logger.info(keySetUri);
               )
       );
 
-        httpSecurity.cors( c -> {
+        httpSecurity.cors(c -> {
             CorsConfigurationSource source = request -> {
                 CorsConfiguration config = new CorsConfiguration();
                 config.setAllowedOrigins(
-                        List.of("http://192.168.0.87:3000", "http://localhost:3000", "http://www.servicospro.com:3001")
+                        List.of("http://192.168.0.87:3000", "http://localhost:3000", "http://www.servicospro.com:3001", "http://www.servicospro.com:8080", "http://www.servicospro.com:8081")
                 );
                 config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-
                 config.setAllowedHeaders(List.of("*"));
                 return config;
             };
