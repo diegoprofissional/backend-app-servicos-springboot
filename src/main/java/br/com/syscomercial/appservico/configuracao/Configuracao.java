@@ -50,7 +50,7 @@ logger.info(keySetUri);
         httpSecurity.csrf(c -> c.disable());
 
         httpSecurity.authorizeRequests()
-                .requestMatchers("/api/admin/**").authenticated()
+               // .requestMatchers("/api/admin/**").authenticated() //cors não funciona para post
                 .anyRequest().permitAll();
          ;
 
