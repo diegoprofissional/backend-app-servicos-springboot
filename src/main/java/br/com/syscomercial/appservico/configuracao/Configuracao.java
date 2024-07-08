@@ -32,7 +32,7 @@ logger.info(keySetUri);
               )
       );
 
-     /*   httpSecurity.cors(c -> {
+        httpSecurity.cors(c -> {
             CorsConfigurationSource source = request -> {
                 CorsConfiguration config = new CorsConfiguration();
                 config.setAllowedOrigins(
@@ -43,7 +43,7 @@ logger.info(keySetUri);
                 return config;
             };
             c.configurationSource(source);
-        });*/
+        });
 
 
 
