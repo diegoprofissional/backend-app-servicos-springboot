@@ -71,7 +71,7 @@ public class PrestadorServicoController {
         return  ResponseEntity.ok("");
     }
 
-    @CrossOrigin(origins = "https://www.servicospro.com:3001")
+    @CrossOrigin(origins = "http://www.servicospro.com:3001")
     @PostMapping("/admin/prestadores-servicos")
     ResponseEntity post(@ModelAttribute DadosPrestadorServico prestadorServico,
                         @RequestParam("arquivoFoto") MultipartFile arquivoFoto){
